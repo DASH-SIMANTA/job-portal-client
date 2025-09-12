@@ -54,7 +54,7 @@ const Navbar = () => {
             <div className="navbar-end space-x-2">
                 {
                     user ? <>
-                        <button onClick={handleSignOut} className='btn'>Sign Out</button>
+                        <Link to='/' className='btn text-cyan-600'onClick={handleSignOut}>Sign Out</Link>
                     </> : <>
                         <Link to='/signup' className='btn text-cyan-600'>SignUp</Link>
                         <Link to='/signin' className='btn text-cyan-600'>SignIn</Link>

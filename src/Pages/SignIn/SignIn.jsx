@@ -3,10 +3,15 @@ import React, { useContext } from 'react';
 import loginAnimationData from '../../assets/lottie/Login.json'
 import AuthContext from '../../context/AuthContext/AuthContext';
 import GoogleLogin from '../shared/socialLogin/GoogleLogin';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
 
     const { signIn } = useContext(AuthContext);
+    const location =useLocation();
+    const navigate = useNavigate();
+    console.log('in SignIn page', location);
+    const from =location.state || '/';
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -18,6 +23,7 @@ const SignIn = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                navigate(from);
             })
 
     }
