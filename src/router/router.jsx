@@ -7,6 +7,9 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
+import JobApply from "../Pages/JobApply/JobApply";
+import MyApplications from "../Pages/MyApplications/MyApplications";
+
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,15 @@ const router = createBrowserRouter([
             element:<PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
             loader:({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
 
+        },
+        {
+            path:'/jobApply/:id',
+            element: <PrivateRoute><JobApply></JobApply></PrivateRoute>,
+
+        },
+        {
+            path:'/myApplications',
+            element: <PrivateRoute><MyApplications></MyApplications></PrivateRoute>
         }
     ]
   },
